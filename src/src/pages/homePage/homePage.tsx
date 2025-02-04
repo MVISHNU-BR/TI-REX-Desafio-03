@@ -1,14 +1,14 @@
 import Header from "@/components/header/Header.module";
-import { Link } from "react-router";
 import dinnign from "@/assets/dinning.png";
 import living from "@/assets/living.png";
 import bedroom from "@/assets/bedroom.png";
+import ProductsContent from "@/components/productsContent/ProductsContent";
 
 export default function HomePage() {
   return (
     <>
       <Header />
-      <section className="w-full flex h-[716.83px] debug justify-center bg-[url(@/assets/homeSection.png)]  bg-countain bg-center bg-no-repeat">
+      <section className="w-full flex h-[716.83px] debug justify-center bg-[url(@/assets/homeSection.png)] bg-countain bg-center bg-no-repeat">
         <div className="max-w-[1440px] w-full debug flex items-center justify-end px-[58px] pt-[50px]">
           <div className="w-[643px] h-[433px] debug bg-secondWhite rounded-[10px] flex flex-col items-start pl-[39px] py-[62px]">
             <div className="flex flex-col mb-4">
@@ -32,7 +32,7 @@ export default function HomePage() {
           </div>
         </div>
       </section>
-      <section className="flex flex-col h-[685px] items-center mt-14 gap-14">
+      <section className="flex flex-col h-[685px] items-center my-14 gap-14">
         <div className="flex flex-col items-center">
           <h3 className="text-[32px] font-bold ">Browse The Range</h3>
           <span className="font-normal text-">
@@ -56,6 +56,7 @@ export default function HomePage() {
           </div>
         </div>
       </section>
+      <ProductsContent sectionTitle="Our Products" />
     </>
   );
 }

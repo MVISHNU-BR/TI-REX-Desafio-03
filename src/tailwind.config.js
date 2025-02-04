@@ -15,7 +15,9 @@ export default {
       colors: {
         primary: "#B88E2F",
         secondWhite: "#FFF3E3",
-        secondDark: "#333333"
+        secondDark: "#333333",
+        fadeBlack: "#3A3A3A",
+        fadeGray: "#898989"
       },
       fontFamily: {
         poppins: ["Poppins", 'sans-serif'],
