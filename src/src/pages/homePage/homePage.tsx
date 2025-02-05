@@ -3,6 +3,7 @@ import dinnign from "@/assets/dinning.png";
 import living from "@/assets/living.png";
 import bedroom from "@/assets/bedroom.png";
 import ProductsContent from "@/components/productsContent/ProductsContent";
+import Footer from "@/components/footer/Footer.module";
 
 export default function HomePage() {
   return (
@@ -57,6 +58,9 @@ export default function HomePage() {
         </div>
       </section>
       <ProductsContent sectionTitle="Our Products" />
+      <section className="stroke-red-600">
+        <Footer />
+      </section>
     </>
   );
 }
