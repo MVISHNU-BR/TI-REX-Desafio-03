@@ -8,7 +8,7 @@ import linkedin from "@/assets/linkedin.svg";
 
 export default function Footer() {
   return (
-    <footer className="flex flex-col items-center justify-center gap-12 px-[100px] py-12  w-full h-[505px] border-t-[2px] border-borderGray  mt-14">
+    <footer className="flex flex-col items-center justify-center gap-12 px-[100px] py-12  w-full h-[505px] border-t-[2px] border-borderGray">
       <div className="flex h-[312px] justify-between max-w-[1240.01px] w-full ">
         <div className=" flex flex-col gap-14">
           <Link to="/">
