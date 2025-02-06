@@ -1,15 +1,13 @@
 import Header from "@/components/header/Header.module";
-import dinnign from "@/assets/dinning.png";
-import living from "@/assets/living.png";
-import bedroom from "@/assets/bedroom.png";
 import ProductsContent from "@/components/productsContent/ProductsContent";
 import Footer from "@/components/footer/Footer.module";
+import TitleBanner from "@/components/titleBanner/TitleBanner";
 
 export default function HomePage() {
   return (
     <>
       <Header />
-      <section className="w-full flex h-[716.83px] debug justify-center bg-[url(@/assets/homeSection.png)] bg-countain bg-center bg-no-repeat">
+      <section className="w-full flex h-[716.83px] debug justify-center bg-[url(https://furniroimages.s3.us-east-2.amazonaws.com/homeSection.png)] bg-countain bg-center bg-no-repeat">
         <div className="max-w-[1440px] w-full debug flex items-center justify-end px-[58px] pt-[50px]">
           <div className="w-[643px] h-[433px] debug bg-secondWhite rounded-[10px] flex flex-col items-start pl-[39px] py-[62px]">
             <div className="flex flex-col mb-4">
@@ -42,21 +40,34 @@ export default function HomePage() {
         </div>
         <div className="flex gap-5 items-center">
           <div className="flex flex-col items-center gap-8">
-            <img src={dinnign} className="rounded-xl" alt="dinning desk" />
+            <img
+              src="https://furniroimages.s3.us-east-2.amazonaws.com/dinning.png"
+              className="rounded-xl"
+              alt="dinning desk"
+            />
+            <span className="font-poppins text-xl font-semibold">Dining</span>
+          </div>
+          <div className="flex flex-col items-center gap-8">
+            <img
+              src="https://furniroimages.s3.us-east-2.amazonaws.com/living.png"
+              className="rounded-xl"
+              alt="dinning desk"
+            />
             <span className="font-poppins text-xl font-semibold">Linving</span>
           </div>
           <div className="flex flex-col items-center gap-8">
-            <img src={living} className="rounded-xl" alt="dinning desk" />
-            <span className="font-poppins text-xl font-semibold">Linving</span>
-          </div>
-          <div className="flex flex-col items-center gap-8">
-            <img src={bedroom} className="rounded-xl" alt="dinning desk" />
+            <img
+              src="https://furniroimages.s3.us-east-2.amazonaws.com/bedroom.png"
+              className="rounded-xl"
+              alt="dinning desk"
+            />
             <span className="font-poppins text-xl text-secondDark font-semibold">
-              Linving
+              Bedroom
             </span>
           </div>
         </div>
       </section>
+      <TitleBanner />
       <ProductsContent sectionTitle="Our Products" />
       <section className="stroke-red-600">
         <Footer />
