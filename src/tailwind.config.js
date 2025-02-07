@@ -18,9 +18,12 @@ export default {
         secondDark: "#333333",
         fadeBlack: "#3A3A3A",
         fadeGray: "#898989",
+        fadeGray2: "#616161",
         secondFadeGray: "#9F9F9F",
         borderGray: "#D9D9D9",
-        bannerColor: "#FAF3EA"
+        bannerColor: "#FAF3EA",
+        bannerColorSecondary: "#FCF8F3",
+
       },
       fontFamily: {
         poppins: ["Poppins", 'sans-serif'],
