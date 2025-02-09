@@ -19,16 +19,22 @@ export default function Header() {
           <h1 className="text-[34px] font-montserrat font-bold">Furniro</h1>
         </Link>
         <nav className="flex gap-[75px] font-poppins text-sm md:text-base font-medium">
-          <NavLink to="#" className="hover:border-b-2 hover:border-b-black">
+          <NavLink to="/" className="hover:border-b-2 hover:border-b-black">
             Home
           </NavLink>
-          <NavLink to="#" className="hover:border-b-2 hover:border-b-black">
+          <NavLink to="/shop" className="hover:border-b-2 hover:border-b-black">
             Shop
-          </NavLink>{" "}
-          <NavLink to="#" className="hover:border-b-2 hover:border-b-black">
+          </NavLink>
+          <NavLink
+            to="/aboult"
+            className="hover:border-b-2 hover:border-b-black"
+          >
             Aboult
-          </NavLink>{" "}
-          <NavLink to="#" className="hover:border-b-2 hover:border-b-black">
+          </NavLink>
+          <NavLink
+            to="/contact"
+            className="hover:border-b-2 hover:border-b-black"
+          >
             Contact
           </NavLink>
         </nav>

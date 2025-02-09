@@ -1,6 +1,6 @@
 import CardItem from "../cardItem/CardItem";
+import { Button } from "../ui/button";
 import { ProductsProps } from "./tyeps.products";
-import imagem1 from "@/assets/image1.png";
 
 export default function ProductsContent({ sectionTitle }: ProductsProps) {
   const products = [
@@ -10,7 +10,7 @@ export default function ProductsContent({ sectionTitle }: ProductsProps) {
       tipeItem: "Stylish cafe chair",
       price: 2500.0,
       fullPrice: 3500.0,
-      imgItem: imagem1,
+      imgItem: "https://furniroimages.s3.us-east-2.amazonaws.com/image+5.png",
       state: "-30%",
     },
     {
@@ -19,7 +19,8 @@ export default function ProductsContent({ sectionTitle }: ProductsProps) {
       tipeItem: "Stylish cafe chair",
       price: 2500.0,
       fullPrice: 3500.0,
-      imgItem: imagem1,
+      imgItem: "https://furniroimages.s3.us-east-2.amazonaws.com/image+5.png",
+
       state: "-30%",
     },
     {
@@ -28,7 +29,8 @@ export default function ProductsContent({ sectionTitle }: ProductsProps) {
       tipeItem: "Stylish cafe chair",
       price: 2500.0,
       fullPrice: 3500.0,
-      imgItem: imagem1,
+      imgItem: "https://furniroimages.s3.us-east-2.amazonaws.com/image+5.png",
+
       state: "-30%",
     },
     {
@@ -37,7 +39,8 @@ export default function ProductsContent({ sectionTitle }: ProductsProps) {
       tipeItem: "Stylish cafe chair",
       price: 2500.0,
       fullPrice: 3500.0,
-      imgItem: imagem1,
+      imgItem: "https://furniroimages.s3.us-east-2.amazonaws.com/image+5.png",
+
       state: "-30%",
     },
     {
@@ -46,7 +49,8 @@ export default function ProductsContent({ sectionTitle }: ProductsProps) {
       tipeItem: "Stylish cafe chair",
       price: 2500.0,
       fullPrice: 3500.0,
-      imgItem: imagem1,
+      imgItem: "https://furniroimages.s3.us-east-2.amazonaws.com/image+5.png",
+
       state: "-30%",
     },
     {
@@ -55,7 +59,8 @@ export default function ProductsContent({ sectionTitle }: ProductsProps) {
       tipeItem: "Stylish cafe chair",
       price: 2500.0,
       fullPrice: 3500.0,
-      imgItem: imagem1,
+      imgItem: "https://furniroimages.s3.us-east-2.amazonaws.com/image+5.png",
+
       state: "-30%",
     },
     {
@@ -64,7 +69,8 @@ export default function ProductsContent({ sectionTitle }: ProductsProps) {
       tipeItem: "Stylish cafe chair",
       price: 2500.0,
       fullPrice: 3500.0,
-      imgItem: imagem1,
+      imgItem: "https://furniroimages.s3.us-east-2.amazonaws.com/image+5.png",
+
       state: "-30%",
     },
     {
@@ -73,12 +79,13 @@ export default function ProductsContent({ sectionTitle }: ProductsProps) {
       tipeItem: "Stylish cafe chair",
       price: 2500.0,
       fullPrice: 3500.0,
-      imgItem: imagem1,
+      imgItem: "https://furniroimages.s3.us-east-2.amazonaws.com/image+5.png",
+
       state: "-30%",
     },
   ];
   return (
-    <section className="flex flex-col gap-8 w-full items-center">
+    <section className="flex flex-col gap-8 mb-14 w-full min-h-[1084px] items-center">
       <h2 className="font-bold text-[40px]">{sectionTitle}</h2>
       <div className="flex gap-8 items-center justify-center flex-wrap max-w-[1440px]">
         {products.map((item) => (
@@ -91,6 +98,9 @@ export default function ProductsContent({ sectionTitle }: ProductsProps) {
             state={item.state}
           />
         ))}
+      </div>
+      <div>
+        <Button variant={"outline"}>Show More</Button>
       </div>
     </section>
   );

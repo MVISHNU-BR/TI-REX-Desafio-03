@@ -1,12 +1,9 @@
-import Header from "@/components/header/Header.module";
 import ProductsContent from "@/components/productsContent/ProductsContent";
-import Footer from "@/components/footer/Footer.module";
 import SliderCardHome from "@/pages/homePage/components/sliderCardHome/SliderCardHome";
 import { Button } from "@/components/ui/button";
 export default function HomePage() {
   return (
     <>
-      <Header />
       <section className="w-full flex h-[716.83px]  justify-center bg-[url(https://furniroimages.s3.us-east-2.amazonaws.com/homeSection.png)] bg-countain bg-center bg-no-repeat">
         <div className="max-w-[1440px] w-full  flex items-center justify-end px-[58px] pt-[50px]">
           <div className="w-[643px] h-[433px]  bg-secondWhite rounded-[10px] flex flex-col items-start gap-11 pl-[39px] py-[62px]">
@@ -66,7 +63,6 @@ export default function HomePage() {
       </section>
       <ProductsContent sectionTitle="Our Products" />
       <SliderCardHome />
-      <Footer />
     </>
   );
 }
