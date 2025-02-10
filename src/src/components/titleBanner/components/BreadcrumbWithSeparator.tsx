@@ -1,4 +1,4 @@
-import { Link, useLocation } from "react-router";
+import { Link } from "react-router";
 
 import {
   Breadcrumb,
@@ -9,30 +9,14 @@ import {
   BreadcrumbSeparator,
 } from "@/components/ui/breadcrumb";
 
-export function BreadcrumbWithSeparator() {
-  const location = useLocation();
-  const pathName = location.pathname;
-  const getPageName = (pathName: string) => {
-    switch (pathName) {
-      case "/components":
-        return "Components";
-      case "/shop":
-        return "Shop";
-      case "/aboult":
-        return "Aboult";
-      case "/contact":
-        return "contact";
-      case "/cart":
-        return "Cart";
-      case "/checkout":
-        return "Checkout";
-      default:
-        return "Unknown"; // Página desconhecida
-    }
-  };
+interface BreadcrumbWithSeparatorProps {
+  currentPageName?: string;
+  pathName?: string;
+}
 
-  const currentPageName = getPageName(pathName);
-
+export const BreadcrumbWithSeparator: React.FC<
+  BreadcrumbWithSeparatorProps
+> = ({ currentPageName, pathName = "/" }) => {
   return (
     <Breadcrumb>
       <BreadcrumbList className=" text-base font-medium text-black">
@@ -50,4 +34,6 @@ export function BreadcrumbWithSeparator() {
       </BreadcrumbList>
     </Breadcrumb>
   );
-}
+};
+
+export default BreadcrumbWithSeparator;
