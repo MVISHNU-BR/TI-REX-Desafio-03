@@ -8,6 +8,7 @@ import App from "./App.tsx";
 import HomePage from "./pages/homePage/homePage.tsx";
 import ShopPage from "./pages/shop/shopPage.tsx";
 import Layout from "./layouts/Layout.tsx";
+import SecondLayout from "./layouts/secondLayout.tsx";
 
 /* Clerk things*/
 const PUBLISHABLE_KEY = import.meta.env.VITE_CLERK_PUBLISHABLE_KEY;
@@ -20,13 +21,34 @@ createRoot(document.getElementById("root")!).render(
   <BrowserRouter>
     <StrictMode>
       <ClerkProvider publishableKey={PUBLISHABLE_KEY} afterSignOutUrl="/">
-        <Layout>
-          <Routes>
-            <Route path="/" element={<HomePage />} />
-            <Route path="/shop" element={<ShopPage />} />
-            <Route path="/1" element={<App />} />
-          </Routes>
-        </Layout>
+        {/*so com header e footer*/}
+        <Routes>
+          <Route
+            path="/"
+            element={
+              <Layout>
+                <HomePage />
+              </Layout>
+            }
+          />
+          {/* header, footer e titleBanner e quality Banner */}
+          <Route
+            path="/shop"
+            element={
+              <SecondLayout>
+                <ShopPage />
+              </SecondLayout>
+            }
+          />
+          <Route
+            path="/1"
+            element={
+              <SecondLayout>
+                <App />
+              </SecondLayout>
+            }
+          />
+        </Routes>
       </ClerkProvider>
     </StrictMode>
   </BrowserRouter>
