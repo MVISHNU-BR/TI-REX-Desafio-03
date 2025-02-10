@@ -1,19 +1,21 @@
 import "./App.css";
-import { Button } from "@/components/ui/button";
-import Header from "./components/header/Header.module";
-
+import {
+  SignedIn,
+  SignedOut,
+  SignInButton,
+  UserButton,
+} from "@clerk/clerk-react";
 function App() {
   return (
     <>
-      <Header />
-      <div>
-        <h2 className="font-montserrat font-bold">another test</h2>
-      </div>
-      <div>
-        <h1 className="bg-blue-200 text-3xl">teste de react</h1>
-
-        <Button>Click me</Button>
-      </div>
+      <header>
+        <SignedOut>
+          <SignInButton />
+        </SignedOut>
+        <SignedIn>
+          <UserButton />
+        </SignedIn>
+      </header>
     </>
   );
 }

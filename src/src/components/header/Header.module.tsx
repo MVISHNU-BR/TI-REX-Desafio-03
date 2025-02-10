@@ -11,18 +11,18 @@ export default function Header() {
   return (
     <>
       <header className=" h-[100px] w-full flex items-center justify-between px-14">
-        <Link
-          to={"/"}
-          className="debug bg-white flex flex-row items-center gap-1"
-        >
+        <Link to={"/"} className="bg-white flex flex-row items-center gap-1">
           <img src={MainLogo} width={50} height={32} alt="Logo Furniro" />
           <h1 className="text-[34px] font-montserrat font-bold">Furniro</h1>
         </Link>
-        <nav className="flex gap-[75px] font-poppins text-sm md:text-base font-medium">
+        <nav className="flex gap-[75px] font-poppins text-sm md:text-base font-medium mb-2">
           <NavLink to="/" className="hover:border-b-2 hover:border-b-black">
             Home
           </NavLink>
-          <NavLink to="/shop" className="hover:border-b-2 hover:border-b-black">
+          <NavLink
+            to="/shop"
+            className="border border-white hover:border-b-2 hover:border-b-black"
+          >
             Shop
           </NavLink>
           <NavLink
@@ -38,7 +38,7 @@ export default function Header() {
             Contact
           </NavLink>
         </nav>
-        <div className="flex gap-9 debug items-center">
+        <div className="flex gap-9 items-center">
           <Link to="">
             <img src={personIcon} alt="Perfil icon" />
           </Link>
