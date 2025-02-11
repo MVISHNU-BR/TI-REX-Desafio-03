@@ -1,9 +1,9 @@
-import ProductsContent from "@/components/productsContent/ProductsContent";
+import Filter from "./Components/Filter.Module";
 
 export default function ShopPage() {
   return (
-    <section>
-      <ProductsContent></ProductsContent>
+    <section className="">
+      <Filter />
     </section>
   );
 }

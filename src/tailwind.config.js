@@ -23,6 +23,8 @@ export default {
         borderGray: "#D9D9D9",
         bannerColor: "#FAF3EA",
         bannerColorSecondary: "#FCF8F3",
+        filterBanner: "#F9F1E7",
+        cardItemFade: "#F4F5F7"
 
       },
       fontFamily: {
