@@ -1,107 +1,72 @@
+import { useEffect, useState } from "react";
 import CardItem from "../cardItem/CardItem";
 import { Button } from "../ui/button";
+import { cardItemProps } from "../cardItem/types.cardItem";
 import { ProductsProps } from "./tyeps.products";
+import { getProductsPagined } from "@/services/getProducts";
 
 export default function ProductsContent({ sectionTitle }: ProductsProps) {
-  const products = [
-    {
-      id: 1,
-      title: "Syltherine",
-      tipeItem: "Stylish cafe chair",
-      price: 2500.0,
-      fullPrice: 3500.0,
-      imgItem: "https://furniroimages.s3.us-east-2.amazonaws.com/image+5.png",
-      state: "-30%",
-    },
-    {
-      id: 2,
-      title: "Syltherine",
-      tipeItem: "Stylish cafe chair",
-      price: 2500.0,
-      fullPrice: 3500.0,
-      imgItem: "https://furniroimages.s3.us-east-2.amazonaws.com/image+5.png",
+  const [products, setProducts] = useState<cardItemProps[]>([]);
+  const [start, setStart] = useState<number>(8);
+  const limit = 8;
+  const [loading, setLoading] = useState<boolean>(false);
+  const [hasMore, setHasMore] = useState<boolean>(true);
 
-      state: "-30%",
-    },
-    {
-      id: 3,
-      title: "Syltherine",
-      tipeItem: "Stylish cafe chair",
-      price: 2500.0,
-      fullPrice: 3500.0,
-      imgItem: "https://furniroimages.s3.us-east-2.amazonaws.com/image+5.png",
+  useEffect(() => {
+    const fetchInitialProducts = async () => {
+      setLoading(true);
+      try {
+        const initialProducts = await getProductsPagined(0, limit);
+        setProducts(initialProducts);
+      } catch (error) {
+        console.error("Erro ao buscar produtos:", error);
+      } finally {
+        setLoading(false);
+      }
+    };
 
-      state: "-30%",
-    },
-    {
-      id: 4,
-      title: "Syltherine",
-      tipeItem: "Stylish cafe chair",
-      price: 2500.0,
-      fullPrice: 3500.0,
-      imgItem: "https://furniroimages.s3.us-east-2.amazonaws.com/image+5.png",
+    fetchInitialProducts();
+  }, []);
 
-      state: "-30%",
-    },
-    {
-      id: 5,
-      title: "Syltherine",
-      tipeItem: "Stylish cafe chair",
-      price: 2500.0,
-      fullPrice: 3500.0,
-      imgItem: "https://furniroimages.s3.us-east-2.amazonaws.com/image+5.png",
+  const handleShowMore = async () => {
+    if (loading) return;
 
-      state: "-30%",
-    },
-    {
-      id: 6,
-      title: "Syltherine",
-      tipeItem: "Stylish cafe chair",
-      price: 2500.0,
-      fullPrice: 3500.0,
-      imgItem: "https://furniroimages.s3.us-east-2.amazonaws.com/image+5.png",
+    setLoading(true);
+    try {
+      const newProducts = await getProductsPagined(start, limit);
+      setProducts((prev) => [...prev, ...newProducts]);
+      setStart((prev) => prev + limit);
+      if (newProducts.length < limit) setHasMore(false);
+    } catch (error) {
+      console.error("Erro ao carregar mais produtos:", error);
+    } finally {
+      setLoading(false);
+    }
+  };
 
-      state: "-30%",
-    },
-    {
-      id: 7,
-      title: "Syltherine",
-      tipeItem: "Stylish cafe chair",
-      price: 2500.0,
-      fullPrice: 3500.0,
-      imgItem: "https://furniroimages.s3.us-east-2.amazonaws.com/image+5.png",
-
-      state: "-30%",
-    },
-    {
-      id: 8,
-      title: "Syltherine",
-      tipeItem: "Stylish cafe chair",
-      price: 2500.0,
-      fullPrice: 3500.0,
-      imgItem: "https://furniroimages.s3.us-east-2.amazonaws.com/image+5.png",
-
-      state: "-30%",
-    },
-  ];
   return (
     <section className="flex flex-col gap-8 mb-14 w-full min-h-[1084px] items-center">
       <h2 className="font-bold text-[40px]">{sectionTitle}</h2>
       <div className="flex gap-8 items-center justify-center flex-wrap max-w-[1440px]">
-        {products.map((item) => (
+        {products.map((item: cardItemProps) => (
           <CardItem
+            key={item.id}
             imgItem={item.imgItem}
             title={item.title}
-            typeItem={item.tipeItem}
+            typeItem={item.typeItem}
             price={item.price}
             fullPrice={item.fullPrice}
             state={item.state}
           />
         ))}
       </div>
-      <div>
-        <Button variant={"outline"}>Show More</Button>
-      </div>
+      {hasMore && (
+        <div className="flex justify-center">
+          <Button variant="outline" onClick={handleShowMore} disabled={loading}>
+            {loading ? "Carregando..." : "Show More"}
+          </Button>
+        </div>
+      )}
     </section>
   );
 }
