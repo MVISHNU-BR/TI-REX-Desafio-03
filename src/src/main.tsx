@@ -10,6 +10,8 @@ import ShopPage from "./pages/shop/shopPage.tsx";
 import Layout from "./layouts/Layout.tsx";
 import SecondLayout from "./layouts/SecondLayout.tsx";
 import ProductPage from "./pages/shop/product/ProductPage.tsx";
+import ContactPage from "./pages/contact/ContactPage.tsx";
+import CheckoutPage from "./pages/checkout/CheckoutPage.tsx";
 
 /* Clerk things*/
 const PUBLISHABLE_KEY = import.meta.env.VITE_CLERK_PUBLISHABLE_KEY;
@@ -55,6 +57,22 @@ createRoot(document.getElementById("root")!).render(
               <Layout>
                 <ProductPage />
               </Layout>
+            }
+          />{" "}
+          <Route
+            path="/contact"
+            element={
+              <SecondLayout>
+                <ContactPage />
+              </SecondLayout>
+            }
+          />
+          <Route
+            path="/checkout"
+            element={
+              <SecondLayout>
+                <CheckoutPage />
+              </SecondLayout>
             }
           />
         </Routes>

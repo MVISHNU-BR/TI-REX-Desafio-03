@@ -13,7 +13,7 @@ const buttonVariants = cva(
         outline: "p-5 rounded-sm w-[60px] h-[60px] font-medium text-xl",
         cart: "text-primary bg-white h-[48px] w-[202px] font-semibold text-base",
         secondary:
-          "bg-neutral-100 text-neutral-900 shadow-sm hover:bg-neutral-100/80 dark:bg-neutral-800 dark:text-neutral-50 dark:hover:bg-neutral-800/80",
+          "mt-9 self-center border border-black rounded-xl w-[318px] h=[64px] text-xl font-normal hover:bg-primary hover:text-white hover:border-primary",
         ghost: "px-2 py-1",
         //apenas link esta nos padrões do site
         link: "text-black text-base border-b-2  border-transparent rounded-none hover:border-black dark:text-white",
