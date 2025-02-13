@@ -15,6 +15,7 @@ const buttonVariants = cva(
         secondary:
           "mt-9 self-center border border-black rounded-xl w-[318px] h=[64px] text-xl font-normal hover:bg-primary hover:text-white hover:border-primary",
         ghost: "px-2 py-1",
+        none: "",
         //apenas link esta nos padrões do site
         link: "text-black text-base border-b-2  border-transparent rounded-none hover:border-black dark:text-white",
       },

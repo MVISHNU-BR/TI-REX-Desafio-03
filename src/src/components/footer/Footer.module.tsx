@@ -87,7 +87,6 @@ export default function Footer() {
               <Input
                 type="email"
                 placeholder="Enter Your Email Address"
-                variant={"outline"}
                 className="text-black text-base dark:text-white pr-3 outline-none border-b-2 border-transparent focus:border-black focus:ring-0"
               />
               <Button type="submit" size={"none"} variant="link">
