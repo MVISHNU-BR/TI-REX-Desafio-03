@@ -11,21 +11,17 @@ const Filter = () => {
   const [products, setProducts] = useState<cardItemProps[]>([]);
   const [show, setShow] = useState<number>(16);
   const [currentPage, setCurrentPage] = useState<number>(1);
-  const [loading, setLoading] = useState<boolean>(false);
   const [filterPopup, setFilterPopup] = useState<boolean>(false);
   const [filteredProducts, setFilteredProducts] = useState<cardItemProps[]>([]);
 
   useEffect(() => {
     const fetchInitialProducts = async () => {
-      setLoading(true);
       try {
         const result = await getProducts();
         setProducts(result);
         setFilteredProducts(result);
       } catch (error) {
         console.error("Erro ao buscar produtos:", error);
-      } finally {
-        setLoading(false);
       }
     };
 
