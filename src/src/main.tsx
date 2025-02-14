@@ -4,7 +4,6 @@ import "./index.css";
 import { BrowserRouter, Route, Routes } from "react-router";
 import { ClerkProvider } from "@clerk/clerk-react";
 
-import App from "./App.tsx";
 import HomePage from "./pages/homePage/homePage.tsx";
 import ShopPage from "./pages/shop/shopPage.tsx";
 import Layout from "./layouts/Layout.tsx";
@@ -12,6 +11,7 @@ import SecondLayout from "./layouts/SecondLayout.tsx";
 import ProductPage from "./pages/shop/product/ProductPage.tsx";
 import ContactPage from "./pages/contact/ContactPage.tsx";
 import CheckoutPage from "./pages/checkout/CheckoutPage.tsx";
+import AuthRoutes from "./routes/AuthRoutes.tsx";
 
 /* Clerk things*/
 const PUBLISHABLE_KEY = import.meta.env.VITE_CLERK_PUBLISHABLE_KEY;
@@ -44,14 +44,6 @@ createRoot(document.getElementById("root")!).render(
             }
           />
           <Route
-            path="/1"
-            element={
-              <SecondLayout>
-                <App />
-              </SecondLayout>
-            }
-          />
-          <Route
             path="/shop/:slug"
             element={
               <Layout>
@@ -67,14 +59,18 @@ createRoot(document.getElementById("root")!).render(
               </SecondLayout>
             }
           />
-          <Route
-            path="/checkout"
-            element={
-              <SecondLayout>
-                <CheckoutPage />
-              </SecondLayout>
-            }
-          />
+          {/* Login page */}
+          {/* Auth Routes */}
+          <Route element={<AuthRoutes />}>
+            <Route
+              path="/checkout"
+              element={
+                <SecondLayout>
+                  <CheckoutPage />
+                </SecondLayout>
+              }
+            />
+          </Route>
         </Routes>
       </ClerkProvider>
     </StrictMode>

@@ -22,25 +22,25 @@ export default function Footer() {
 
           <div className="flex flex-row gap-4 ">
             <a
-              href="#"
+              href="https://www.facebook.com/"
               className="w-[34px] rounded-full flex justify-center h-[34px] shadow-[0px_4px_14px_0px_rgba(0,_0,_0,_0.15)]"
             >
               <img src={facebook} width={13} height={13} alt="" />
             </a>
             <a
-              href="#"
+              href="https://www.instagram.com/"
               className="w-[34px] rounded-full flex justify-center h-[34px] shadow-[0px_4px_14px_0px_rgba(0,_0,_0,_0.15)]"
             >
               <img src={instagram} width={13} height={13} alt="" />
             </a>
             <a
-              href="#"
+              href="https://x.com/"
               className="w-[34px] rounded-full flex justify-center h-[34px] shadow-[0px_4px_14px_0px_rgba(0,_0,_0,_0.15)]"
             >
               <img src={x} width={13} height={13} alt="" />
             </a>
             <a
-              href="#"
+              href="https://www.linkedin.com/"
               className="w-[34px] rounded-full flex justify-center h-[34px] shadow-[0px_4px_14px_0px_rgba(0,_0,_0,_0.15)]"
             >
               <img src={linkedin} width={13} height={13} alt="" />

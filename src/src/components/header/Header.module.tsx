@@ -2,7 +2,12 @@ import { Link, NavLink } from "react-router";
 import MainLogo from "@/assets/MainLogo.svg";
 import cart from "@/assets/cart.svg";
 import personIcon from "@/assets/personIcon.svg";
-
+import {
+  SignedIn,
+  SignedOut,
+  SignInButton,
+  UserButton,
+} from "@clerk/clerk-react";
 // interface HeaderProps {
 //   children?: React.ReactNode;
 // }
@@ -25,10 +30,7 @@ export default function Header() {
           >
             Shop
           </NavLink>
-          <NavLink
-            to="/aboult"
-            className="hover:border-b-2 hover:border-b-black"
-          >
+          <NavLink to="/" className="hover:border-b-2 hover:border-b-black">
             Aboult
           </NavLink>
           <NavLink
@@ -39,9 +41,20 @@ export default function Header() {
           </NavLink>
         </nav>
         <div className="flex gap-9 items-center">
-          <Link to="">
-            <img src={personIcon} alt="Perfil icon" />
-          </Link>
+          <div>
+            <SignedOut>
+              <SignInButton>
+                <img
+                  src={personIcon}
+                  className="cursor-pointer "
+                  alt="Perfil icon"
+                />
+              </SignInButton>
+            </SignedOut>
+            <SignedIn>
+              <UserButton />
+            </SignedIn>
+          </div>
           <Link to="">
             <img src={cart} alt="Cart shop icon" />
           </Link>
