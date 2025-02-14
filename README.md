@@ -4,8 +4,7 @@
 
 ### Tecnologias Usadas:
 
-**HTML**, **CSS**, **TypeScript**, **React**, **Tailwind CSS**, e outras bibliotecas necessárias para garantir a fidelidade ao design e funcionalidades do sistema
-
+**HTML**, **CSS**, **TypeScript**, **React**, **Tailwind CSS**
 ## 🚀 Tecnologias Utilizadas
 
 <div align="left">
