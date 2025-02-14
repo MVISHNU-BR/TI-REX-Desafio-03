@@ -1,5 +1,6 @@
 import { InputWithLabel } from "@/components/inputWithLabel/InputWithLabel";
 import { useToast } from "@/hooks/use-toast";
+import { useEffect } from "react";
 import { useForm } from "react-hook-form";
 
 export default function CheckoutForm() {
@@ -9,6 +10,8 @@ export default function CheckoutForm() {
     handleSubmit,
     formState: { errors },
     reset,
+    watch,
+    setValue,
   } = useForm({
     defaultValues: {
       firstName: "",
@@ -24,6 +27,22 @@ export default function CheckoutForm() {
       additionalInformation: "",
     },
   });
+  const zipCode = watch("zipCode");
+
+  useEffect(() => {
+    if (zipCode && zipCode.length === 8) {
+      fetch(`https://viacep.com.br/ws/${zipCode}/json/`)
+        .then((response) => response.json())
+        .then((data) => {
+          if (!data.erro) {
+            setValue("streeAddress", data.logradouro);
+            setValue("town", data.localidade);
+            setValue("province", data.uf);
+          }
+        })
+        .catch((error) => console.error("Erro ao buscar CEP:", error));
+    }
+  }, [zipCode, setValue]);
 
   const onSubmit = (data: any) => {
     console.log("FormData:", data);

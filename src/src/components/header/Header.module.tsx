@@ -20,7 +20,7 @@ import { RootState } from "@/store/store";
 // }
 
 export default function Header() {
-  const [showCartOverlay, setShowCartOverlay] = useState(true);
+  const [showCartOverlay, setShowCartOverlay] = useState(false);
   const totalPrice = useSelector((state: RootState) => state.cart.totalPrice);
   const dispatch = useDispatch();
 

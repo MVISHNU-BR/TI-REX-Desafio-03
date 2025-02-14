@@ -1,6 +1,7 @@
 import ProductsContent from "@/components/productsContent/ProductsContent";
 import SliderCardHome from "@/pages/homePage/components/sliderCardHome/SliderCardHome";
 import { Button } from "@/components/ui/button";
+import ImagesSection from "./components/ImageSection";
 export default function HomePage() {
   return (
     <>
@@ -63,6 +64,7 @@ export default function HomePage() {
       </section>
       <ProductsContent sectionTitle="Our Products" />
       <SliderCardHome />
+      <ImagesSection />
     </>
   );
 }
