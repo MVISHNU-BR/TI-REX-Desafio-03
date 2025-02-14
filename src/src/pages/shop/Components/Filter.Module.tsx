@@ -157,7 +157,7 @@ const Filter = () => {
               </Button>
             </div>
             <Button
-              variant={"secondary"}
+              variant={"none"}
               onClick={() => setFilterPopup(false)}
               size={"none"}
               className="absolute top-2 right-2 px-2 py-[0.5px] text-red-600 text-2xl rounded-sm"

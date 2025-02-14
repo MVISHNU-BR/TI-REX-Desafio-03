@@ -11,7 +11,7 @@ export default function CartPage() {
   );
   const totalPrice = useSelector((state: RootState) => state.cart.totalPrice);
   return (
-    <section className="w-full debug justify-center px-[100px] pt-[76px] pb-[64px] flex gap-8">
+    <section className="w-full justify-center px-[100px] pt-[76px] pb-[64px] flex gap-8">
       <div className="">
         <div className="h-[57.3px] w-[817px] bg-filterBanner  flex items-center gap-[137px] px-[146px]">
           <div className="flex gap-28">
