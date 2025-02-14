@@ -12,6 +12,7 @@ import ProductPage from "./pages/shop/product/ProductPage.tsx";
 import ContactPage from "./pages/contact/ContactPage.tsx";
 import CheckoutPage from "./pages/checkout/CheckoutPage.tsx";
 import AuthRoutes from "./routes/AuthRoutes.tsx";
+import CartPage from "./pages/cart/CartPage.tsx";
 
 /* Clerk things*/
 const PUBLISHABLE_KEY = import.meta.env.VITE_CLERK_PUBLISHABLE_KEY;
@@ -56,6 +57,14 @@ createRoot(document.getElementById("root")!).render(
             element={
               <SecondLayout>
                 <ContactPage />
+              </SecondLayout>
+            }
+          />
+          <Route
+            path="/cart"
+            element={
+              <SecondLayout>
+                <CartPage />
               </SecondLayout>
             }
           />
