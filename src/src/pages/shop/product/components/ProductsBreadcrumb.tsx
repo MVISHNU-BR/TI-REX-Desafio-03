@@ -6,9 +6,10 @@ import {
   BreadcrumbPage,
   BreadcrumbSeparator,
 } from "@/components/ui/breadcrumb";
-import { Link } from "react-router";
+import { Link, useParams } from "react-router";
 
 export function ProductsBreadcrumb() {
+  const params = useParams();
   return (
     <Breadcrumb>
       <BreadcrumbList>
@@ -28,7 +29,7 @@ export function ProductsBreadcrumb() {
 
         <BreadcrumbItem>
           <BreadcrumbPage className="no-underline pl-4">
-            Breadcrumb
+            {params.slug}
           </BreadcrumbPage>
         </BreadcrumbItem>
       </BreadcrumbList>

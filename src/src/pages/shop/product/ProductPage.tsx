@@ -1,12 +1,9 @@
-import { useParams } from "react-router";
 import { ProductsBreadcrumb } from "./components/ProductsBreadcrumb";
 import ImageGrid from "./components/ImageGrid";
 import RelatedProducts from "./components/RelatedProducts";
 import ProductsInfo from "./components/ProductsInfo";
 
 export default function ProductPage() {
-  const params = useParams();
-  console.log(params);
   return (
     <section className="flex flex-col gap-9">
       <div className="h-[100px] flex items-center px-24 bg-filterBanner">
