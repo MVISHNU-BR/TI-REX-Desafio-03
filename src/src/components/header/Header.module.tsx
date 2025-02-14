@@ -67,7 +67,7 @@ export default function Header() {
             </SignedIn>
           </div>
           <div
-            className=""
+            className="relative"
             onMouseEnter={() => setShowCartOverlay(true)}
             onMouseLeave={() => setShowCartOverlay(false)}
           >
@@ -77,10 +77,10 @@ export default function Header() {
 
             {/* Overlay do Carrinho */}
             {showCartOverlay && (
-              <div className="fixed inset-0 bg-black bg-opacity-50">
+              <div className="fixed inset-0 z-50 bg-black bg-opacity-50">
                 <div
                   onMouseLeave={() => setShowCartOverlay(false)}
-                  className="absolute z-10 right-0 top-0 w-[417px] h-[746px] flex flex-col justify-between bg-white shadow-lg pl-7 pt-7 pr-10 pb-7"
+                  className="absolute z-60 right-0 top-0 w-[417px] h-[746px] flex flex-col justify-between bg-white shadow-lg pl-7 pt-7 pr-10 pb-7"
                 >
                   <div className="">
                     <div className=" flex items-center justify-between ">
