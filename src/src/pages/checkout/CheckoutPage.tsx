@@ -1,8 +1,15 @@
 import { Button } from "@/components/ui/button";
 import CheckoutForm from "./components/CheckoutForm";
 import { Link } from "react-router";
+import { RootState } from "@/store/store";
+import { useSelector } from "react-redux";
 
 export default function CheckoutPage() {
+  const totalPrice = useSelector((state: RootState) => state.cart.totalPrice);
+  const subtotalPrice = useSelector(
+    (state: RootState) => state.cart.subtotalPrice
+  );
+  const cartItems = useSelector((state: RootState) => state.cart.items);
   return (
     <section className="flex justify-center gap-6">
       <CheckoutForm />
@@ -11,17 +18,31 @@ export default function CheckoutPage() {
           <div className=" flex justify-between">
             <div className=" flex flex-col gap-4">
               <h3 className="font-medium text-2xl">Product</h3>
-              <p className="font-normal text-base text-secondFadeGray">
-                Asgaard sofa <span className="text-black">x 1</span>
-              </p>
+              {cartItems.length > 0
+                ? cartItems.map((item) => (
+                    <p className="font-normal text-base text-secondFadeGray">
+                      {item.name}{" "}
+                      <span className="text-black"> X {item.quantity}</span>
+                    </p>
+                  ))
+                : ""}
               <p className="font-normal text-base">Subtotal</p>
               <p className="font-normal text-base">Total</p>
             </div>
             <div className=" flex flex-col gap-4 text-end">
               <h3 className="font-medium text-2xl">Subtotal</h3>
-              <p className="font-light text-base">R$ 250,000.00</p>
-              <p className="font-light text-base">R$ 250,000.00</p>
-              <p className="font-bold text-primary text-2xl">R$ 250,000.00</p>
+              {cartItems.length > 0
+                ? cartItems.map((item) => (
+                    <p className="font-light text-base"> $ {item.price}</p>
+                  ))
+                : ""}
+              <p className="font-light text-base">
+                {" "}
+                $ {subtotalPrice.toFixed(2)}
+              </p>
+              <p className="font-bold text-primary text-2xl">
+                $ {totalPrice.toFixed(2)}
+              </p>
             </div>
           </div>
           <div className=" flex flex-col gap-2">

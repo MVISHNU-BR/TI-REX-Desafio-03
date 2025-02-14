@@ -4,7 +4,8 @@ import { Heart } from "lucide-react";
 import share from "@/assets/share.svg";
 import compare from "@/assets/compare.svg";
 import { Button } from "../ui/button";
-
+import { useDispatch } from "react-redux";
+import { addItem } from "@/store/cartSlice";
 export default function CardItem({
   title,
   typeItem,
@@ -12,9 +13,22 @@ export default function CardItem({
   fullPrice,
   imgItem,
   state,
+  id,
 }: cardItemProps) {
+  const dispatch = useDispatch();
+  const handleAddToCart = () => {
+    dispatch(
+      addItem({
+        id: id ?? 0,
+        name: title,
+        price: price,
+        image: imgItem,
+        quantity: 1,
+      })
+    );
+  };
   return (
-    <div className="relative w-[285px] h-[446px] bg-cardItemFade group overflow-hidden shadow-md">
+    <div className="relative  w-[285px] h-[446px] bg-cardItemFade group overflow-hidden shadow-md">
       <div className="">
         <div className="w-[285px] h-[446px]">
           <img src={imgItem} alt="productImage" />
@@ -49,7 +63,7 @@ export default function CardItem({
           className=""
           onClick={(event) => {
             event.preventDefault();
-            alert("clicou");
+            handleAddToCart();
           }}
         >
           Add to cart

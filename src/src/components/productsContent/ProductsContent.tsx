@@ -51,6 +51,7 @@ export default function ProductsContent({ sectionTitle }: ProductsProps) {
         {products.map((item: cardItemProps) => (
           <CardItem
             key={item.id}
+            id={item.id}
             imgItem={item.imgItem}
             title={item.title}
             typeItem={item.typeItem}

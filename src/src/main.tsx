@@ -3,6 +3,8 @@ import { createRoot } from "react-dom/client";
 import "./index.css";
 import { BrowserRouter, Route, Routes } from "react-router";
 import { ClerkProvider } from "@clerk/clerk-react";
+import { Provider } from "react-redux";
+import { store } from "./store/store";
 
 import HomePage from "./pages/homePage/homePage.tsx";
 import ShopPage from "./pages/shop/shopPage.tsx";
@@ -25,62 +27,64 @@ createRoot(document.getElementById("root")!).render(
   <BrowserRouter>
     <StrictMode>
       <ClerkProvider publishableKey={PUBLISHABLE_KEY} afterSignOutUrl="/">
-        {/*so com header e footer*/}
-        <Routes>
-          <Route
-            path="/"
-            element={
-              <Layout>
-                <HomePage />
-              </Layout>
-            }
-          />
-          {/* header, footer e titleBanner e quality Banner */}
-          <Route
-            path="/shop"
-            element={
-              <SecondLayout>
-                <ShopPage />
-              </SecondLayout>
-            }
-          />
-          <Route
-            path="/shop/:slug"
-            element={
-              <Layout>
-                <ProductPage />
-              </Layout>
-            }
-          />{" "}
-          <Route
-            path="/contact"
-            element={
-              <SecondLayout>
-                <ContactPage />
-              </SecondLayout>
-            }
-          />
-          <Route
-            path="/cart"
-            element={
-              <SecondLayout>
-                <CartPage />
-              </SecondLayout>
-            }
-          />
-          {/* Login page */}
-          {/* Auth Routes */}
-          <Route element={<AuthRoutes />}>
+        <Provider store={store}>
+          {/*so com header e footer*/}
+          <Routes>
             <Route
-              path="/checkout"
+              path="/"
+              element={
+                <Layout>
+                  <HomePage />
+                </Layout>
+              }
+            />
+            {/* header, footer e titleBanner e quality Banner */}
+            <Route
+              path="/shop"
               element={
                 <SecondLayout>
-                  <CheckoutPage />
+                  <ShopPage />
                 </SecondLayout>
               }
             />
-          </Route>
-        </Routes>
+            <Route
+              path="/shop/:slug"
+              element={
+                <Layout>
+                  <ProductPage />
+                </Layout>
+              }
+            />{" "}
+            <Route
+              path="/contact"
+              element={
+                <SecondLayout>
+                  <ContactPage />
+                </SecondLayout>
+              }
+            />
+            <Route
+              path="/cart"
+              element={
+                <SecondLayout>
+                  <CartPage />
+                </SecondLayout>
+              }
+            />
+            {/* Auth Routes */}
+            <Route element={<AuthRoutes />}>
+              <Route
+                path="/checkout"
+                element={
+                  <SecondLayout>
+                    <CheckoutPage />
+                  </SecondLayout>
+                }
+              />
+            </Route>
+            {/* Login page */}
+          </Routes>
+        </Provider>
       </ClerkProvider>
     </StrictMode>
   </BrowserRouter>

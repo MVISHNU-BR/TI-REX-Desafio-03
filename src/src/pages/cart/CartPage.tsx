@@ -1,7 +1,15 @@
 import { Button } from "@/components/ui/button";
 import CartItem from "./components/CartItem";
+import { useSelector } from "react-redux";
+import { RootState } from "@/store/store";
+import { useNavigate } from "react-router";
 
 export default function CartPage() {
+  const navigate = useNavigate();
+  const subtotalPrice = useSelector(
+    (state: RootState) => state.cart.subtotalPrice
+  );
+  const totalPrice = useSelector((state: RootState) => state.cart.totalPrice);
   return (
     <section className="w-full debug justify-center px-[100px] pt-[76px] pb-[64px] flex gap-8">
       <div className="">
@@ -25,12 +33,14 @@ export default function CartPage() {
           <div className="flex gap-16">
             <p className="font-medium text-base">Subtotal</p>
             <p className="font-normal text-base text-secondFadeGray">
-              Rs. 250,000.00
+              $ {subtotalPrice.toFixed(2)}
             </p>
           </div>
           <div className="flex gap-16">
             <p className="font-medium text-base">Total</p>
-            <p className="font-medium text-primary text-xl">Rs. 250,000.00</p>
+            <p className="font-medium text-primary text-xl">
+              $ {totalPrice.toFixed(2)}
+            </p>
           </div>
         </div>
         <div className="">
@@ -38,6 +48,7 @@ export default function CartPage() {
             variant={"secondary"}
             size={"none"}
             className="w-[222px] h-[61px] mt-0"
+            onClick={() => navigate("/checkout")}
           >
             Check Out
           </Button>

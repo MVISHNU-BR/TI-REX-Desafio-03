@@ -12,4 +12,5 @@ export interface cardItemProps {
   stars?: number;
   customereview?: number;
   additionalInformation?: string;
+  quantity?: number;
 }
